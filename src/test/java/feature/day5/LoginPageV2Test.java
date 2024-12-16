@@ -19,22 +19,19 @@ public class LoginPageV2Test {
         // Thiết lập WebDriver (trình duyệt Chrome)
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-        try {
-            // Duyệt qua từng bản ghi trong dữ liệu
-            for (Map<String, String> rowData : excelData) {
-                System.out.println("Dữ liệu hàng: " + rowData);
-                String user = rowData.get("Username"); // Lấy giá trị cột "user"
-                String pass = rowData.get("Password"); // Lấy giá trị cột "pass"
-                driver.get("https://www.saucedemo.com/");
-                WebElement usernameInput = driver.findElement(By.id("user-name"));
-                usernameInput.sendKeys(user);
-                WebElement passwordInput = driver.findElement(By.id("password"));
-                passwordInput.sendKeys(pass);
-            }
-        } finally {
-            // Đóng trình duyệt
-            driver.quit();
+        // Duyệt qua từng bản ghi trong dữ liệu
+        for (Map<String, String> rowData : excelData) {
+            System.out.println("Dữ liệu hàng: " + rowData);
+            String user = rowData.get("Username"); // Lấy giá trị cột "user"
+            String pass = rowData.get("Password"); // Lấy giá trị cột "pass"
+            driver.get("https://www.saucedemo.com/");
+            WebElement usernameInput = driver.findElement(By.id("user-name"));
+            usernameInput.sendKeys(user);
+            WebElement passwordInput = driver.findElement(By.id("password"));
+            passwordInput.sendKeys(pass);
         }
+        // Đóng trình duyệt
+        driver.quit();
+
     }
 }
