@@ -27,6 +27,7 @@ public class BTVNBookYourDemoHereV2Test {
             driver.get("https://saucelabs.com/request-demo");
 
             // Lấy dữ liệu từ từng hàng
+            //Sử dụng getOrDefault để đảm bảo giá trị không bị null khi thiếu dữ liệu trong Excel.
             String email = rowData.getOrDefault("Business Email", "");
             String firstName = rowData.getOrDefault("First Name", "");
             String lastName = rowData.getOrDefault("Last Name", "");
@@ -45,12 +46,9 @@ public class BTVNBookYourDemoHereV2Test {
             inputText(requestDemoPageUI.findTexBoxLastName(), lastName);
             inputText(requestDemoPageUI.findTexBoxCompany(), company);
             inputText(requestDemoPageUI.findTexBoxPhone(), phone);
-
             selectDropdownByVisibleText(requestDemoPageUI.findTexBoxCountry(), country);
             selectDropdownByVisibleText(requestDemoPageUI.findTexBoxInterest(), interest);
-
             inputText(requestDemoPageUI.findTexBoxComment(), comment);
-
             requestDemoPageUI.findCheckBox().click();
             requestDemoPageUI.findButtonLetsTalk().click();
 
