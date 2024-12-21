@@ -18,7 +18,7 @@ public class Day2Test {
         // Tạo instance của TestDemo
         Day2Test testDemo = new Day2Test(driver);
         // Sử dụng requestDemoPageUI
-        testDemo.requestDemoPageUI.findPasswordInput().sendKeys("email của tôi nè");
+        //testDemo.requestDemoPageUI.findPasswordInput().sendKeys("email của tôi nè");
         driver.quit();
         // cách dùng luôn mà ko tạo class RequestDemoPageUI
 //        WebElement usernameInput = driver.findElement(By.xpath("//input[@id='Email']"));
