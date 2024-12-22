@@ -21,6 +21,9 @@ public class RequestDemoPageUI {
     public WebElement findTexBoxFirstName() {
         return driver.findElement(By.xpath("//input[contains(@id,'FirstName')]"));
     }
+    public WebElement labelFirstName() {
+        return driver.findElement(By.xpath("//label[@id='LblFirstName']"));
+    }
     public WebElement findTexBoxLastName() {
         return driver.findElement(By.xpath("//input[contains(@id,'LastName')]"));
     }

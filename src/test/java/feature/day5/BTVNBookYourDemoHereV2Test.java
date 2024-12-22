@@ -1,12 +1,16 @@
 package feature.day5;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import ui.RequestDemoPageUI;
 import untils.ExcelUtils;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +25,8 @@ public class BTVNBookYourDemoHereV2Test {
         // Khởi tạo WebDriver
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
+        // Khởi tạo WebDriverWait
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         // Lặp qua từng bản ghi trong dữ liệu Excel
         for (Map<String, String> rowData : excelData) {
             // Truy cập URL
@@ -42,6 +48,8 @@ public class BTVNBookYourDemoHereV2Test {
 
             inputText(requestDemoPageUI.findTexBoxBusinessEmail(), email);
             //cần thêm wait có điều kien
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("FirstName")));
+
             inputText(requestDemoPageUI.findTexBoxFirstName(), firstName);
             inputText(requestDemoPageUI.findTexBoxLastName(), lastName);
             inputText(requestDemoPageUI.findTexBoxCompany(), company);

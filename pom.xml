@@ -58,16 +58,10 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.0</version>
                 <configuration>
-                    <includes>
-                        <include>**/Test*.java</include> <!-- Chạy tất cả các class bắt đầu bằng "Test" -->
-                        <include>**/*Test.java</include> <!-- Chạy tất cả các class kết thúc bằng "Test" -->
-                        <include>**/*Tests.java</include> <!-- Chạy tất cả các class kết thúc bằng "Tests" -->
-                        <include>**/*TestCase.java</include> <!-- Chạy tất cả các class kết thúc bằng "TestCase" -->
-                    </includes>
-                    <argLine>-Xms256m -Xmx512m</argLine> <!-- Thiết lập tham số cho JVM, Giới hạn bộ nhớ để đảm bảo các test không sử dụng quá nhiều tài nguyên hệ thống.-Xms<size>: Thiết lập kích thước bộ nhớ heap ban đầu,-Xmx<size>: Thiết lập kích thước bộ nhớ heap tối đa.-->
+                    <skip>true</skip>
                 </configuration>
             </plugin>
         </plugins>

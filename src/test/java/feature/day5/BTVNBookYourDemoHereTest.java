@@ -40,25 +40,18 @@ public class BTVNBookYourDemoHereTest {
                 String country = rowData.get("Country");
                 String interest = rowData.get("Interest");
                 String comments = rowData.get("Comments");
-
+//nhap du lieu
                 driver.findElement(By.id("Email")).sendKeys(businessEmail);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("FirstName"))).sendKeys(firstName);
-
                 driver.findElement(By.id("LastName")).sendKeys(lastName);
                 driver.findElement(By.id("Company")).sendKeys(company);
-
                 driver.findElement(By.id("Phone")).sendKeys(phoneNumber);
-
                 WebElement countryDropdownList = driver.findElement(By.id("Country"));
                 new Select(countryDropdownList).selectByVisibleText(country);
-
                 WebElement interestDropdownList = driver.findElement(By.id("Solution_Interest__c"));
                 new Select(interestDropdownList).selectByVisibleText(interest);
-
                 driver.findElement(By.id("Sales_Contact_Comments__c")).sendKeys(comments);
-
                 driver.findElement(By.id("LblmktoCheckbox_44280_0")).click();
-
                 driver.findElement(By.xpath("//button[@type='submit']")).click();
 
                 System.out.println("Request success");
